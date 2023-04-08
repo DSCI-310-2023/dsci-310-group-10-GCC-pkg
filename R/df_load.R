@@ -1,8 +1,3 @@
-library(here)
-library(tidymodels)
-library(tidyverse)
-
-source(here("R/convert_to_num.R"))
 #' df_load
 #'
 #' This function load and preprocess a dataset from a CSV file,
@@ -36,18 +31,20 @@ source(here("R/convert_to_num.R"))
 # ‘
 #' @export
 #'
-#' @example
-#' df_load(url = 'https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv',
-#'         skip1 = 0,
-#'         skip2 = 0,
-#'         n_max1 = 3,
-#'         n_max2 = 2,
-#'         error_line = 2,
-#'         error_record = 2:4,
-#'         correct_bef_error_record = 1,
-#'         val_corrected = list(3.5,1.4,0.2,'setosa'),
-#'         error_col = c('petal_width'),
-#'         predicted_factor = 'species')
+#' @examples
+#' df_load(
+#'   url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv",
+#'   skip1 = 0,
+#'   skip2 = 0,
+#'   n_max1 = 3,
+#'   n_max2 = 2,
+#'   error_line = 2,
+#'   error_record = 2:4,
+#'   correct_bef_error_record = 1,
+#'   val_corrected = list(3.5, 1.4, 0.2, "setosa"),
+#'   error_col = c("petal_width"),
+#'   predicted_factor = "species"
+#' )
 df_load <- function(
     url, skip1, skip2, n_max1, n_max2, error_line, error_record,
     correct_bef_error_record, val_corrected, error_col, predicted_factor) {
@@ -64,11 +61,11 @@ df_load <- function(
     stop("`predicted_factor` should be a string")
   }
   # load and split dataset into 2
-  data1 <- read_csv(url,
+  data1 <- readr::read_csv(url,
     skip = skip1, n_max = n_max1, col_types = NULL,
     show_col_types = FALSE
   )
-  data2 <- read_csv(url,
+  data2 <- readr::read_csv(url,
     skip = skip2, n_max = n_max2, col_types = NULL,
     show_col_types = FALSE
   )
@@ -83,8 +80,8 @@ df_load <- function(
   data2 <- convert_to_num(df = data2, cols = error_col)
 
   # combine 2 datasats splited
-  data <- rbind(data1, data2) %>% mutate(!!predicted_factor
-  := as_factor(!!sym(predicted_factor)))
+  data <- rbind(data2, data1) %>% dplyr::mutate(!!predicted_factor
+  := forcats::as_factor(!!ggplot2::sym(predicted_factor)))
 
   return(data)
 }

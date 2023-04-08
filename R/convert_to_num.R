@@ -10,9 +10,8 @@
 #'
 #' @export
 #'
-#' @example
-#' df1 = data.frame(c_to_n = c('1','2'))
-#' convert_to_num(df1, 'c_to_n')
+#' @examples
+#' convert_to_num(data.frame(c_to_n = c('1','2')), 'c_to_n')
 convert_to_num <- function(df, cols) {
   if (!is.data.frame(df)) {
     stop("`df` should be a data frame or

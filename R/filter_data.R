@@ -8,6 +8,8 @@ library(purrr)
 #' filters the data by a given column name and a value and by a
 #' column range
 #'
+#' @param data Data to be filtered
+#'
 #' @param col_to_filter_by Name of the column which should be used
 #' for filtering the data.
 #'
@@ -27,14 +29,21 @@ library(purrr)
 #'
 #' @export
 #'
-#' @example
-#' filter_data("fire", range)
+#' @examples
+#' filter_data(
+#'   data.frame(
+#'     type = c("big", "big", "small"),
+#'     length = c(5.2, 2.1, 1.2),
+#'     height = c(10.1, 20.1, 4.2),
+#'     depth = c(3, 2, 1.8)
+#'   ), type, "big", height, depth, mean
+#' )
 filter_data <- function(
     data, col_to_filter_by, subset,
     start_col, end_col, alg) {
   filtered_data <- data %>%
-    filter({{ col_to_filter_by }} == {{ subset }}) %>%
-    select({{ start_col }}:{{ end_col }}) %>%
-    map_df({{ alg }})
+    dplyr::filter({{ col_to_filter_by }} == {{ subset }}) %>%
+    dplyr::select({{ start_col }}:{{ end_col }}) %>%
+    purrr::map_df({{ alg }})
   return(filtered_data)
 }

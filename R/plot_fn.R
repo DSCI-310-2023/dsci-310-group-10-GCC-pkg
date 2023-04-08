@@ -1,5 +1,3 @@
-library(ggplot2)
-
 #' Line plot function
 #'
 #' This function plots a line graph given the data and the column names to
@@ -17,10 +15,13 @@ library(ggplot2)
 #'
 #' @export
 #'
-#' @example
-#' plot_line_graph(data=accuracies, plot_width=10, plot_height=10,
-#' x_axis_data=neighbors, y_axis_data=mean, x_axis_label="Neighbors",
-#' y_axis_label="Accuracy Estimate")
+#' @examples
+#' plot_line_graph(
+#'   data = data.frame(neighbors = c(1, 2, 3), mean = c(0.80, 0.85, 0.95)),
+#'   plot_width = 10, plot_height = 10,
+#'   x_axis_data = neighbors, y_axis_data = mean, x_axis_label = "Neighbors",
+#'   y_axis_label = "Accuracy Estimate"
+#' )
 plot_line_graph <- function(
     data, plot_width, plot_height, x_axis_data,
     y_axis_data, x_axis_label, y_axis_label) {
@@ -38,10 +39,10 @@ plot_line_graph <- function(
 
   options(repr.plot.width = plot_width, repr.plot.height = plot_height)
 
-  return(ggplot(data, aes(x = {{ x_axis_data }}, y = {{ y_axis_data }})) +
-    geom_point() +
-    geom_line() +
-    labs(x = x_axis_label, y = y_axis_label))
+  return(ggplot2::ggplot(data, ggplot2::aes(x = {{ x_axis_data }}, y = {{ y_axis_data }})) +
+    ggplot2::geom_point() +
+    ggplot2::geom_line() +
+    ggplot2::labs(x = x_axis_label, y = y_axis_label))
 }
 
 
@@ -66,11 +67,17 @@ plot_line_graph <- function(
 #'
 #' @export
 #'
-#' @example
-#' plot_scatter_graph(data=fire_train, plot_width=8.9, plot_height=6,
-#' x_axis_data=ISI, y_axis_data=BUI, x_axis_label="Initial Spread Index",
-#' y_axis_label="presence of fire", text_size=20, color=Classes,
-#' color_label="presence of fire")
+#' @examples
+#' plot_scatter_graph(
+#'   data = data.frame(
+#'     ISI = c(5.2, 2.1, 5.2), BUI = c(10.1, 2.1, 4.2),
+#'     Classes = c("fire", "fire", "no fire")
+#'   ),
+#'   plot_width = 10, plot_height = 10, x_axis_data = ISI,
+#'   y_axis_data = BUI, x_axis_label = "ISI",
+#'   y_axis_label = "BUI", text_size = 20, color = Classes,
+#'   color_label = "Presence of fire"
+#' )
 plot_scatter_graph <- function(
     data, plot_width, plot_height, x_axis_data,
     y_axis_data, x_axis_label, y_axis_label, text_size, color, color_label) {
@@ -88,11 +95,11 @@ plot_scatter_graph <- function(
 
   options(repr.plot.width = plot_width, repr.plot.height = plot_height)
 
-  return(ggplot(data, aes(
+  return(ggplot2::ggplot(data, ggplot2::aes(
     x = {{ x_axis_data }}, y = {{ y_axis_data }},
     color = {{ color }}
   )) +
-    geom_point() +
-    labs(x = x_axis_label, y = y_axis_label, color = color_label) +
-    theme(text = element_text(size = text_size)))
+    ggplot2::geom_point() +
+    ggplot2::labs(x = x_axis_label, y = y_axis_label, color = color_label) +
+    ggplot2::theme(text = ggplot2::element_text(size = text_size)))
 }
