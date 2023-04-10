@@ -21,5 +21,8 @@ Suggests:
     roxygen2,
     testthat (>= 3.0.0),
     rsample,
-    here
+    here,
+    knitr,
+    rmarkdown
 Config/testthat/edition: 3
+VignetteBuilder: knitr
