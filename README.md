@@ -9,6 +9,22 @@
 [![R-CMD-check](https://github.com/DSCI-310/dsci-310-group-10-GCC-pkg/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DSCI-310/dsci-310-group-10-GCC-pkg/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
+This package contains the following functions:
+
+  - convert\_to\_num()
+  - df\_load()
+  - filter\_data()
+  - plot\_scatter\_graph()
+  - plot\_line\_graph()
+
+The first three are helpful for loading and transforming data, while the
+later two are helpful for visualizing it.
+
+Instructions on the installation and how to load the package can be
+found in this README.md. If you are looking for more detailed examples
+on how to use the package, please have a look into our
+[vignettes](https://github.com/DSCI-310/dsci-310-group-10-GCC-pkg/blob/main/vignettes/FFire-vignette.Rmd).
+
 ## Installation
 
 For the installation of this package you need to have R and RStudio
