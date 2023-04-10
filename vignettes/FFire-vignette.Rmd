@@ -20,7 +20,7 @@ library(FFire)
 
 This document contains detailed documentation and examples for the functions 
 which can be found in the FFire package. In general, these function can be used 
-for simple EDA and for visualizing data. The package includes the functions:
+for simple ETL and for visualizing data. The package includes the functions:
 
 * convert_to_num()
 * df_load()
@@ -28,7 +28,7 @@ for simple EDA and for visualizing data. The package includes the functions:
 * plot_scatter_graph()
 * plot_line_graph()
 
-## EDA
+## ETL
 
 ### convert_to_num()
 
