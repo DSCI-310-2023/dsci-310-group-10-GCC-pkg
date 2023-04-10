@@ -90,7 +90,7 @@ df_load(
    predicted_factor = "species"
  )
 ```
-As we can see, the output should be a preprocessed data frame, with messy entries corrected,
+As we can see, the output is a preprocessed data frame, with messy entries corrected,
 unused lines skipped, and data types converted.
 
 ### filter_data()
