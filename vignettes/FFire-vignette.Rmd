@@ -1,0 +1,214 @@
+---
+title: "FFire-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{FFire-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include = FALSE}
+library(FFire)
+```
+
+This document contains detailed documentation and examples for the functions 
+which can be found in the FFire package. In general, these function can be used 
+for simple EDA and for visualizing data. The package includes the functions:
+
+* convert_to_num()
+* df_load()
+* filter_data()
+* plot_scatter_graph()
+* plot_line_graph()
+
+## EDA
+
+### convert_to_num()
+
+The function `convert_to_num()` converts columns that can be coerced to numeric
+type in a data frame to a numeric type. For example, given the following 
+dataframe:
+
+```{r convert-to-num-input-data}
+data_frame_c2n = data.frame(
+  num_saved_as_char = c('1','2'),
+  classes = c('class1', 'class2')
+)
+```
+
+We can see that the column `num_saved_as_char` contains numbers which are saved
+as characters! We want to tread numerical values as numerical values though.
+Using `convert_to_num()` we convert the column `num_saved_as_char` to numeric
+values:
+
+```{r convert-to-num-example}
+convert_to_num(data_frame_c2n, 'num_saved_as_char')
+```
+
+As we can see, the output of the functions returns the dataframe with the
+column `num_saved_as_char` being formatted as numeric values!
+
+### df_load()
+
+This function loads and preprocesses a dataset from a CSV file,
+splits the date frame into 2 parts that the first part is nice
+formatted and the second part need manipulation,
+correct the wrong row entries in the second part,
+convert the numeric columns into correct data type,
+combine the data together.
+
+=> To be done by Stella
+
+
+### filter_data()
+
+This function calculates metrics based on a given algorithm (e.g. mean, range, 
+etc.) on the used dataset (e.g. fire_train) filters the data by a given column 
+name which has as specific value and by a column range. For example, given the 
+following dataframe:
+
+```{r filter-data-input-data}
+   data_frame_filter_data = data.frame(
+     type = c("big", "big", "small"),
+     length = c(5.2, 2.1, 1.2),
+     height = c(10.1, 20.1, 4.2),
+     depth = c(3, 2, 1.8)
+   )
+  data_frame_filter_data
+```
+
+Now, let's say we want to get the mean value for the columns length and height,
+while discarding the depth column and filtering by only "big" entries. We can do
+this as follows:
+
+```{r filter-data-example-1}
+filter_data(data_frame_filter_data, type, "big", height, depth, mean)
+```
+
+Now, if we would like to get the range of the selected columns we can simply
+run the following command:
+
+```{r filter-data-example-2}
+filter_data(data_frame_filter_data, type, "big", height, depth, range)
+```
+
+The first row shows the minimum value in the given column and the second row
+shows the maximum value of the column.
+
+## Visualization
+
+### plot_scatter_graph()
+
+This function can be used to plot a two dimensional scatter plot! For example, 
+lets say you want to plot the following data:
+
+```{r scatter-plot-input-data}
+   data_frame_scatter_plot = data.frame(
+     dryness = c(5.2, 2.1, 5.2), 
+     temperature = c(10.1, 2.1, 4.2),
+     Classes = c("fire", "fire", "no fire")
+   )
+```
+
+We would like to visualize this data with `dryness` being on the x axis and 
+`temperature` being on the y axis. We would like to label both axis with an 
+uppercase name and would like to title the legend with "Presence of fire".
+As we don't want the plot to be too big we want to define the height, width and
+text size to ensure readability.
+
+
+```{r scatter-plot-example-1,  fig.height = 5, fig.width = 5, fig.align = "center"}
+ plot_scatter_graph(
+   data_frame_scatter_plot,
+   plot_width = 10, plot_height = 10, x_axis_data = temperature,
+   y_axis_data = dryness, x_axis_label = "Temperature",
+   y_axis_label = "Dryness", text_size = 20, color = Classes,
+   color_label = "Presence of fire"
+ )
+```
+
+Now, if we wanted to double the height of the graph we could simply change the
+parameter `plot_height`:
+```{r scatter-plot-example-2,  fig.height = 5, fig.width = 5, fig.align = "center"}
+ plot_scatter_graph(
+   data_frame_scatter_plot,
+   plot_width = 10, plot_height = 20, x_axis_data = temperature,
+   y_axis_data = dryness, x_axis_label = "Temperature",
+   y_axis_label = "Dryness", text_size = 20, color = Classes,
+   color_label = "Presence of fire"
+ )
+```
+
+Or we could change the header of the legend:
+
+```{r scatter-plot-example-3,  fig.height = 5, fig.width = 5, fig.align = "center"}
+ plot_scatter_graph(
+   data_frame_scatter_plot,
+   plot_width = 10, plot_height = 10, x_axis_data = temperature,
+   y_axis_data = dryness, x_axis_label = "Temperature",
+   y_axis_label = "Dryness", text_size = 20, color = Classes,
+   color_label = "Is a fire present?"
+ )
+```
+
+Accordingly we can also change the labels for the x and y axis:
+```{r scatter-plot-example-4,  fig.height = 5, fig.width = 5, fig.align = "center"}
+ plot_scatter_graph(
+   data_frame_scatter_plot,
+   plot_width = 10, plot_height = 10, x_axis_data = temperature,
+   y_axis_data = dryness, x_axis_label = "Factor 1",
+   y_axis_label = "Factor 2", text_size = 20, color = Classes,
+   color_label = "Presence of fire"
+ )
+```
+
+
+### plot_line_graph()
+
+With this function we can draw a line plot! Let's assume the following data
+which depicts how likely a person is going to get an ice cream given the
+temperature:
+
+```{r line-plot-input-data}
+   data_frame_line_plot = data.frame(
+     temperature = c(5, 15, 25), 
+     probability = c(0.20, 0.70, 0.95)
+     )
+```
+
+We would like to visualize this data with `temperature` being on the x axis and 
+`probability` being on the y axis. We would like to label both axis with an 
+uppercase name. As we don't want the plot to be too big we want to define the 
+height, width to ensure readability. We can do it as follows:
+
+```{r line-plot-example-1,  fig.height = 5, fig.width = 5, fig.align = "center"}
+ plot_line_graph(
+   data = data_frame_line_plot,
+   plot_width = 10, 
+   plot_height = 10,
+   x_axis_data = temperature, 
+   y_axis_data = probability, 
+   x_axis_label = "Temperature",
+   y_axis_label = "Probability"
+ )
+```
+
+Now we could change the name of the x axis:
+```{r line-plot-example-2,  fig.height = 5, fig.width = 5, fig.align = "center"}
+ plot_line_graph(
+   data = data_frame_line_plot,
+   plot_width = 10, 
+   plot_height = 10,
+   x_axis_data = temperature, 
+   y_axis_data = probability, 
+   x_axis_label = "Temperature",
+   y_axis_label = "Likelihood"
+ )
+```
