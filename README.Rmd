@@ -22,6 +22,19 @@ library(knitr)
 [![R-CMD-check](https://github.com/DSCI-310/dsci-310-group-10-GCC-pkg/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DSCI-310/dsci-310-group-10-GCC-pkg/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
+This package contains the following functions:
+
+* convert_to_num()
+* df_load()
+* filter_data()
+* plot_scatter_graph()
+* plot_line_graph()
+
+The first three are helpful for loading and transforming data, while the later two are helpful for visualizing it.
+
+Instructions on the installation and how to load the package can be found in this README.md. If you are looking for more detailed examples on how to use the package, please have a look into our [vignettes](https://github.com/DSCI-310/dsci-310-group-10-GCC-pkg/blob/main/vignettes/FFire-vignette.Rmd).
+
+
 ## Installation
 
 For the installation of this package you need to have R and RStudio installed. We recommend R 4.1.3.
