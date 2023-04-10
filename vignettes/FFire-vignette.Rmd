@@ -58,14 +58,40 @@ column `num_saved_as_char` being formatted as numeric values!
 ### df_load()
 
 This function loads and preprocesses a dataset from a CSV file,
-splits the date frame into 2 parts that the first part is nice
-formatted and the second part need manipulation,
+splits the date frame horizontally into 2 parts where the first part is tidy 
+whereas the second part is messy,
+split the unused lines in each part,
 correct the wrong row entries in the second part,
-convert the numeric columns into correct data type,
-combine the data together.
+convert the numeric columns into correct data type in the second part,
+combine the data together finally. 
+Examples are as follows:
 
-=> To be done by Stella
+Now if given an url to an untidy data frame, before and after line 2 every 
+entries look good, and we want to split the data frame from line 2 horzointally and
+skip 0 lines before reading data. Each maximum number of lines to read in 
+the 2 parst are 3 and 2 respectively. Before the error entries in line 2, there
+is only 1 correct value, and the error entries are in 2:4 columns. We assign and 
+list the corrected values list(3.5, 1.4, 0.2, "setosa"). Later we convert the column
+ `petal_width` to numeric and assign the variable `species` to be the predictedfactor
 
+
+```{r df-load-input-data}
+df_load(
+   url = "https://raw.githubusercontent.com/mwaskom/seaborn-data/master/iris.csv",
+   skip1 = 0,
+   skip2 = 0,
+   n_max1 = 3,
+   n_max2 = 2,
+   error_line = 2,
+   error_record = 2:4,
+   correct_bef_error_record = 1,
+   val_corrected = list(3.5, 1.4, 0.2, "setosa"),
+   error_col = c("petal_width"),
+   predicted_factor = "species"
+ )
+```
+As we can see, the output should be a preprocessed data frame, with messy entries corrected,
+unused lines skipped, and data types converted.
 
 ### filter_data()
 
