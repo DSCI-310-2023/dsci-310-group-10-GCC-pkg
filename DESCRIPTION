@@ -1,9 +1,15 @@
 Package: FFire
-Title: Forest fire function toolkit
-Version: 0.0.0.9000
+Title: Forest Fire Function Toolkit
+Version: 0.0.1
 Authors@R: 
-    person("Jan", "Zimny", , "janzimny@yahoo.deo", role = c("aut", "cre"),
-           comment = c(ORCID = "0009-0007-3663-1647"))
+    c(person("Jan", "Zimny", , "janzimny@yahoo.de", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0007-3663-1647")),
+    person(given = "Jinghan",
+       family = "Xu",
+       role = "aut"),
+    person(given = "Rocky",
+     family = "Zhao",
+     role = "aut"))
 Description: This package provides a toolkit for reading in, cleaning, filtering and plotting data.
 License: file LICENSE
 Encoding: UTF-8
