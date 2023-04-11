@@ -6,10 +6,10 @@ Authors@R:
            comment = c(ORCID = "0009-0007-3663-1647")),
     person(given = "Jinghan",
        family = "Xu",
-       role = c("aut", "cre")),
+       role = "aut"),
     person(given = "Rocky",
      family = "Zhao",
-     role = c("aut", "cre")))
+     role = "aut"))
 Description: This package provides a toolkit for reading in, cleaning, filtering and plotting data.
 License: file LICENSE
 Encoding: UTF-8
