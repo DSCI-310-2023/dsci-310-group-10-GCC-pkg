@@ -1,6 +1,6 @@
 Package: FFire
 Title: Forest Fire Function Toolkit
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: 
     c(person("Jan", "Zimny", , "janzimny@yahoo.de", role = c("aut", "cre"),
            comment = c(ORCID = "0009-0007-3663-1647")),

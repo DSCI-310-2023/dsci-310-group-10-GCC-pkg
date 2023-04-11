@@ -1,5 +1,3 @@
-#' Line plot function
-#'
 #' This function plots a line graph given the data and the column names to
 #' visualize and enables to customize the graphs axis labels and plot dimensions
 #'
@@ -47,8 +45,6 @@ plot_line_graph <- function(
 
 
 
-#' Scatter plot function
-#'
 #' This function plots a scatter graph given the data and the column names to
 #' visualize and enables to customize the graphs axis labels and plot dimensions
 #'

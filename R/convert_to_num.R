@@ -1,5 +1,3 @@
-#' convert_to_num:
-#'
 #' Converts columns that can be coerced to numeric type in a
 #' data frame to numeric type.
 #'

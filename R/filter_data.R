@@ -1,8 +1,6 @@
 library(dplyr)
 library(purrr)
 
-#' Filter data function
-#'
 #' This function calculates metrics based on a given algorithm
 #' (e.g. mean, range, etc.) on the used dataset (e.g. fire_train)
 #' filters the data by a given column name and a value and by a
