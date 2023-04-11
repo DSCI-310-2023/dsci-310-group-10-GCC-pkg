@@ -2,7 +2,10 @@
 % Please edit documentation in R/filter_data.R
 \name{filter_data}
 \alias{filter_data}
-\title{Filter data function}
+\title{This function calculates metrics based on a given algorithm
+(e.g. mean, range, etc.) on the used dataset (e.g. fire_train)
+filters the data by a given column name and a value and by a
+column range}
 \usage{
 filter_data(data, col_to_filter_by, subset, start_col, end_col, alg)
 }

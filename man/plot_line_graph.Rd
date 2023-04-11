@@ -2,7 +2,8 @@
 % Please edit documentation in R/plot_fn.R
 \name{plot_line_graph}
 \alias{plot_line_graph}
-\title{Line plot function}
+\title{This function plots a line graph given the data and the column names to
+visualize and enables to customize the graphs axis labels and plot dimensions}
 \usage{
 plot_line_graph(
   data,
