@@ -7,6 +7,8 @@
 
 [![codecov](https://codecov.io/gh/DSCI-310/dsci-310-group-10-GCC-pkg/branch/main/graph/badge.svg?token=gvCJoMd9mW)](https://codecov.io/gh/DSCI-310/dsci-310-group-10-GCC-pkg)
 [![R-CMD-check](https://github.com/DSCI-310/dsci-310-group-10-GCC-pkg/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/DSCI-310/dsci-310-group-10-GCC-pkg/actions/workflows/R-CMD-check.yaml)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 <!-- badges: end -->
 
 This package contains the following functions:
