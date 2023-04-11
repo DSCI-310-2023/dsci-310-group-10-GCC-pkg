@@ -1,5 +1,3 @@
-#' df_load
-#'
 #' This function load and preprocess a dataset from a CSV file,
 #' split the date frame into 2 parts that the first part is nice
 #' formatted and the second part need manipulation,

@@ -1,5 +1,5 @@
 ---
-title: "FFire-vignette"
+title: "General package manual"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{FFire-vignette}
