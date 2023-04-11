@@ -24,8 +24,8 @@ later two are helpful for visualizing it.
 
 Instructions on the installation and how to load the package can be
 found in this README.md. If you are looking for more detailed examples
-on how to use the package, please have a look into our
-[vignettes](https://github.com/DSCI-310/dsci-310-group-10-GCC-pkg/blob/main/vignettes/FFire-vignette.Rmd).
+on how to use the package, please have a look into our [documentation
+website](https://dsci-310.github.io/dsci-310-group-10-GCC-pkg/index.html)
 
 ## Installation
 
