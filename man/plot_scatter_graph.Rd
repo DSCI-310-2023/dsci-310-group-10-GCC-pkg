@@ -2,7 +2,8 @@
 % Please edit documentation in R/plot_fn.R
 \name{plot_scatter_graph}
 \alias{plot_scatter_graph}
-\title{Scatter plot function}
+\title{This function plots a scatter graph given the data and the column names to
+visualize and enables to customize the graphs axis labels and plot dimensions}
 \usage{
 plot_scatter_graph(
   data,

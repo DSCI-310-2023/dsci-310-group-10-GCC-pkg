@@ -2,7 +2,12 @@
 % Please edit documentation in R/df_load.R
 \name{df_load}
 \alias{df_load}
-\title{df_load}
+\title{This function load and preprocess a dataset from a CSV file,
+split the date frame into 2 parts that the first part is nice
+formatted and the second part need manipulation,
+correct the wrong row entries in the second part,
+convert the numeric columns into correct data type,
+combine the data together.}
 \usage{
 df_load(
   url,

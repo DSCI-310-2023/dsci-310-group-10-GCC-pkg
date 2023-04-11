@@ -2,7 +2,8 @@
 % Please edit documentation in R/convert_to_num.R
 \name{convert_to_num}
 \alias{convert_to_num}
-\title{convert_to_num:}
+\title{Converts columns that can be coerced to numeric type in a
+data frame to numeric type.}
 \usage{
 convert_to_num(df, cols)
 }
